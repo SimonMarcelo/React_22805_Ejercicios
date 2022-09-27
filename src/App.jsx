@@ -10,13 +10,15 @@ import LlamadasSr from "./llamadas/LlamadasSr";
 import Promesas from "./promesas/Promesas";
 import Card from "./props/Card/Card";
 import ComponenteA from "./props/ComponenteA";
+import Ejercicio3 from "./Ejercicios/Piedra-Papel-Tijera";
 
 const App = () => {
   return (
-    <>
-      <Card />
-      <Card />
-    </>
+    // <>
+    //   <Card />
+    //   <Card />
+    // </>
+    <Ejercicio3/>
   );
 };
 
