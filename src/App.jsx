@@ -11,6 +11,7 @@ import Promesas from "./promesas/Promesas";
 import Card from "./props/Card/Card";
 import ComponenteA from "./props/ComponenteA";
 import Ejercicio3 from "./Ejercicios/Piedra-Papel-Tijera";
+import ToDo from "./Ejercicios/ToDo";
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
     //   <Card />
     //   <Card />
     // </>
-    <Ejercicio3/>
+    <ToDo/>
   );
 };
 
