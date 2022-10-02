@@ -8,6 +8,7 @@ body{
 
 #root {
     display: flex;
+    justify-content: center;
 
 }
 
@@ -65,12 +66,77 @@ body{
 
                                 /* Acá comienza el css del ToDoApp*/
 
-#toDoApp {
-    margin-left: 3rem;
+#ToDoApp {
 }
 
-.flexRow {
+.title {
+    text-align: center;
+}
+
+.nuevaTarea {
+    margin: 0 auto;
+    padding: 0.3rem 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color:lightslategrey ;
+}
+
+.tituloTarea , .descripcionTarea {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+}
+
+.botonSubmit {
+    padding: 0.5rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid wheat;
+    border-radius: 8%;
+    background-color: gray;
+    color: white;
+}
+
+.flexRow , .tabla__div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.tabla {
+    max-width: 100%;
+}
+
+.tabla__div {
+    max-width: 100%;
+    border: 1px solid black;
+    padding: 0.5rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    box-shadow: 2px 2px 2px black;
+}
+
+.tabla__checkbox {
+    padding: auto 0;
+}
+
+.tabla__checkbox:checked + * { text-decoration: line-through; }
+
+.titulo_y_descripcion {
+    width: 85%;
+    line-height: 1rem;
+}
+
+.tabla__titulo {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.tabla__trash {
+    display: flex;
+    align-items: center;
+}
+
+h3, p {
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
 }

@@ -1,15 +1,21 @@
 import React, { useState} from "react";
+import { BsFillTrashFill } from "react-icons/bs";
+import { GoTasklist } from "react-icons/go";
+import { MdAddTask } from "react-icons/md";
 
-let tareas = [{id: 0, titulo: "Lavar ropa", descripcion: "Llevar a lavar la ropa en el lavadero"}];
+
+let tareas = [{id: 0, checked: false, titulo: "Lavar ropa", descripcion: "Llevar a lavar la ropa en el lavadero"}];
 let id = 1;
 
 const ToDo = () => {
 	const [form, setForm] = useState({
         id: Number(id),
+        checked: false,
 		titulo: "",
 		descripcion: "",
 	});
 
+    const [auxiliar , setAuxiliar] = useState(0);
 
 	const handleChange = (e) => {
 		const {name, value } = e.target;
@@ -19,41 +25,50 @@ const ToDo = () => {
 			[name]: value,
 		});
 	};
-
-    // const [tareasAux, setTareasAux] = useState(tareas)
-
     
 	const handleSubmit = (e) => {
         e.preventDefault();
         if (form.titulo !== "" && form.descripcion !== "") {
             tareas.push(form);
             form.id++;
-            console.log(tareas)
+            console.log(tareas);
+            setAuxiliar(auxiliar + 1);
         }
 	};
 
+    const handleChecked = (e) => {
+        let id = e.target.id;
+    }
+
+    const handleDeleteItem = (idToDelete) => {
+        console.log(tareas)
+        const tareasFiltradas = tareas.filter((tarea) => tarea.id !== idToDelete);
+        tareas = tareasFiltradas;
+        setAuxiliar(auxiliar + 1);
+    }
+
 	return (
 		<div id="ToDoApp">
-			<h1>ToDo List App</h1>
-			<div>
+			<h1 className="title">ToDo List App  <GoTasklist/></h1>
+			<div className="nuevaTarea">
 				<h3>Nueva Tarea:</h3>
 				<form onSubmit={handleSubmit}>
-					<input type="text" name="titulo"onChange={handleChange}/>
-					<input type="text" name="descripcion" onChange={handleChange}/>
-					<button type="submit">Añadir +</button>
+					<input className="tituloTarea" type="text" name="titulo"onChange={handleChange}/>
+					<input className="descripcionTarea" type="text" name="descripcion" onChange={handleChange}/>
+					<button className="botonSubmit" type="submit"><MdAddTask/></button>
 					<p>* Es necesario completar ambos campos para añadir</p>
 				</form>
 			</div>
 			<h3>Lista de tareas: </h3>   
-            <ul>{
+            <div className="tabla">{
                 tareas.map((tarea, id) => (
-                    <li key={id}>
-                        <input type="checkbox" id={id}/>
-                        <span>Título: {tarea.titulo}</span>{" "}
-                        <span>Descripcion: {tarea.descripcion}</span>
-                    </li>
+                            <div className="tabla__div" key={id}>
+                                <input className="tabla__checkbox" type="checkbox" id={id} onClick={handleChecked}/>
+                                <div className="titulo_y_descripcion"><p className="tabla__titulo">{tarea.titulo}</p><p className="tabla__descripcion">{tarea.descripcion} </p></div>
+                                <div className="tabla__trash" onClick={() => handleDeleteItem(tarea.id)}><BsFillTrashFill/></div>
+                            </div>
                 ))
-                }</ul>             
+                }</div>             
 		</div>
 	);
 };
