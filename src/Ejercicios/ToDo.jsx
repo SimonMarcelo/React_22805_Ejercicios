@@ -36,10 +36,6 @@ const ToDo = () => {
         }
 	};
 
-    const handleChecked = (e) => {
-        let id = e.target.id;
-    }
-
     const handleDeleteItem = (idToDelete) => {
         console.log(tareas)
         const tareasFiltradas = tareas.filter((tarea) => tarea.id !== idToDelete);
@@ -63,7 +59,7 @@ const ToDo = () => {
             <div className="tabla">{
                 tareas.map((tarea, id) => (
                             <div className="tabla__div" key={id}>
-                                <input className="tabla__checkbox" type="checkbox" id={id} onClick={handleChecked}/>
+                                <input className="tabla__checkbox" type="checkbox" id={id} />
                                 <div className="titulo_y_descripcion"><p className="tabla__titulo">{tarea.titulo}</p><p className="tabla__descripcion">{tarea.descripcion} </p></div>
                                 <div className="tabla__trash" onClick={() => handleDeleteItem(tarea.id)}><BsFillTrashFill/></div>
                             </div>
