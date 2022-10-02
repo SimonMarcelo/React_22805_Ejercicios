@@ -11,7 +11,7 @@ import Promesas from "./promesas/Promesas";
 import Card from "./props/Card/Card";
 import ComponenteA from "./props/ComponenteA";
 import Ejercicio3 from "./Ejercicios/Piedra-Papel-Tijera";
-import ToDo from "./Ejercicios/ToDo";
+import ToDo from "./Ejercicios/ToDoApp/ToDo";
 
 const App = () => {
   return (
